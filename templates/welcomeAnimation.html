@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://js.cx/libs/animate.js"></script>
+  {% load static %}
+      <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+  <link rel="stylesheet" href="{% static 'css/welcomeAnimationStyle.css' %}">
+</head>
+
+<body>
+	
+  <div id="field">
+    <div id="avoid">
+        <h1 class="ml15">
+          <span class="word"><img src="{% static 'img/core-img/logoRides.png' %}" height="100"></span>
+        </h1>
+
+        <h1 class="ml2" id="caption">Rides at your door step.</h1>  
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <img src="{% static 'img/house.png' %}" height="220" id="house">
+    <img src="{% static 'img/startCar.gif' %}" height="100" id="ball">
+  </div>
+
+<script>
+  document.getElementById("caption").style.visibility = "hidden";
+  function caption(){
+    document.getElementById("caption").style.visibility = "visible";
+    var textWrapper = document.querySelector('.ml2');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: false})
+  .add({
+    targets: '.ml2 .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 70*i
+  }).add({
+    targets: '.ml2',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 3000
+  });
+  };
+  setTimeout(caption, 1500);
+</script>
+
+<script>
+  function logo() {
+    anime.timeline({loop: false})
+    .add({
+      targets: '.ml15 .word',
+      scale: [14,1],
+      opacity: [0,1],
+      easing: "easeOutCirc",
+      duration: 3000,
+      delay: (el, i) => 800 * i
+    }).add({
+      targets: '.ml15',
+      opacity: 0,
+      duration: 3000,
+      easing: "easeOutExpo",
+      delay: 3000
+    });
+  } 
+
+  logo();
+  </script>
+
+
+  <script>
+    function makeEaseOut(timing) {
+      return function(timeFraction) {
+        return 1 - timing(1 - timeFraction);
+      }
+    }
+
+    function bounce(timeFraction) {
+      for (let a = 0, b = 1, result; 1; a += b, b /= 2) {
+        if (timeFraction >= (7 - 4 * a) / 11) {
+          return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
+        }
+      }
+    }
+
+    function drop() {
+
+      let to = field.clientHeight - ball.clientHeight +3;
+
+      animate({
+        duration: 3000,
+        timing: makeEaseOut(bounce),
+        draw(progress) {
+          ball.style.top = to * progress + 'px';
+        }
+      });
+
+    };
+
+    function launch(){
+      animate({
+        duration: 4000,
+        timing: function back(x, timeFraction) {
+          return Math.pow(timeFraction, 2) * ((x + 1) * timeFraction - x)
+        }.bind(null, 1.5),
+        draw: function(progress) {
+          ball.style.left = progress * field.clientWidth + 10 + 'px';
+        }
+      });
+    };
+    
+    drop();
+    setTimeout(launch, 3000);
+  </script>
+
+  <script>
+    function moveRight(){
+      var elem = document.getElementById("home");   
+      var pos = -screen.width;
+      var i = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (pos > 0){
+          elem.style.left = 0 + 'px'; 
+          clearInterval(id);
+        } else {
+          pos = pos + i; 
+          i = i * 1.01;
+          elem.style.left = pos + 'px'; 
+        }
+      }  
+    };
+
+  function redirect(){
+    var l = "http://"+location.href.split("/")[2]+'/home/';
+    location.replace(l);
+  }
+
+  setTimeout(redirect, 8000);
+  </script>
+
+</body>
+
+</html>

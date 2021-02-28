@@ -1,0 +1,123 @@
+.gradient-button {
+    margin: 10px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 12px;
+    font-weight:bold;
+    text-align: center;
+    /*text-transform: uppercase;*/
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #fff;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    width: 100px;
+    height:30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 25px;
+}
+.gradient-button:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: 8px 10px 12px;
+}
+
+.gradient-button-2 {background-image: linear-gradient(to right, #00d4ff 0%, #7d24ac 51%, #c11111 100%)}
+.gradient-button-2:hover { background-position: right center; }
+
+
+ @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.panel {
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  width: 300px;
+  height: 200px;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-weight:bold;
+  /*text-align:center;*/
+  --borderWidth: 5px;
+  background: #303030;
+  /*position: relative;*/
+  border-radius: var(--borderWidth);
+
+  z-index:10;
+  position:absolute;
+  /*background:skyblue;*/
+  /*background-image:linear-gradient(to right, rgba(25, 228, 118, 0.92), rgba(18, 80, 57, 0.53));*/
+  padding:10px;
+  margin:30px;
+  /*border:2px solid red;*/
+}
+
+.panel:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease infinite;
+  background-size: 400% 400%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.panel1 {
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  width: 99%;
+  height: 95vh;
+  --borderWidth: 5px;
+  z-index:-5;
+  overflow:hidden;
+}
+
+.panel1:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -3;
+  animation: animatedgradient 3s ease infinite;
+  background-size: 400% 400%;
+}
+
+#inpanel{
+    position:absolute;
+    background:#303030;
+    width:313px;
+    height:213px;
+    border-radius:5px;
+    top:3px;
+    left:3px;
+
+}
+
+input[type=text]{
+    border-radius:10px;
+    padding-left:5px;
+}

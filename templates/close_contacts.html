@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css' />
+    {% load static %}
+          <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <link  type="text/css" rel="stylesheet" href="{% static 'css/closecontactsStyle.css' %}"
+     rel="stylesheet" />
+    <title>Close Contact List</title>
+</head>
+
+<body></body>
+    <header style="width:100%;height:100vh;"> 
+        <main class="container flex flex-column items-center justify-center signup">
+            <form class="flex signup-form" method="POST">
+                {% csrf_token %}
+
+                <aside class="flex flex-column justify-center items-center">
+                    <h2>After submitting the close contact list you can book a ride.</h2>
+                    <button type="button" onclick="redirect()">Book a Ride</button>
+                </aside>
+
+                <div class="content flex flex-column justify-center items-center">
+                    <div class="text">
+                        <h1 style="text-align:center;">Close Contact List</h1>
+                        <h4 style="text-align:center;">Enter five numbers of your dear ones</h4>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="cc1" placeholder="Enter the first number" value="{{ cc.cc1 }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="cc2" placeholder="Enter the second number" value="{{ cc.cc2 }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="cc3" placeholder="Enter the third number" value="{{ cc.cc3 }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="cc4" placeholder="Enter the fourth number" value="{{ cc.cc4 }}">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="cc5" placeholder="Enter the fifth number" value="{{ cc.cc5 }}">
+                    </div>
+                    <div class="form-group1">
+                        <input type="submit" value="Submit" text-align="center">
+                    </div>
+                </div>
+            </form>
+        </main>
+    </header style="width:100%;height:99vh;">
+
+    <script>
+        function redirect(){
+            location.replace("http://"+location.href.split("/")[2]+'/chooseRide');
+        }
+    </script>
+
+</body>
+
+</html>

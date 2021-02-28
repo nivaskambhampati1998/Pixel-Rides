@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Choose Your Ride</title>
+
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCrQr37OSVxfpV9DPaJxE3YtJb3Z1AO1Oo&libraries=places" type="text/javascript"></script>
+
+	<script type="text/javascript">
+	    function initialize(element,lat,lng) {
+	        var input = document.getElementById(element);
+	        var autocomplete = new google.maps.places.Autocomplete(input);
+	        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+	            var place = autocomplete.getPlace();
+	            document.getElementById(lat).value = place.geometry.location.lat();
+	            document.getElementById(lng).value = place.geometry.location.lng();
+	        });
+	    }
+	</script>
+
+	{% load static %}
+	    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+	<link rel="stylesheet" href="{% static 'css/ride.css' %}">
+
+</head>
+<body class="panel1">
+	<form method="post">
+	    {% csrf_token %}
+	    <div  class="panel" style="box-shadow: -15px -15px 8px #aaaaaa;">
+	    	<div id="inpanel">	    	
+			    <table style="padding-top:10px;padding-left:10px;">
+			    	<tbody>
+			    		<tr>
+			    			<td>
+			    				<label style="float:right;">Pick Up : </label>				
+			    			</td>
+			    			<td style="width:15px;">
+			    				<input type="text" name="pickup" placeholder="Enter pickup point" autocomplete="on" runat="server" value="{{ pickup }}" onClick="initialize('pickup','plat','plng')">
+			    				<input type="hidden" id="plat" name="plat"/>
+							    <input type="hidden" id="plng" name="plng"/>
+
+			    				 <br>
+			    			</td>
+			    		</tr>
+			    		<tr>
+			    			<td>
+			    				<label  style="float:right;">Destination : </label>				
+			    			</td>
+			    			<td>
+			    				<input id="destination" type="text" placeholder="Enter destination" autocomplete="on" runat="server" name="destination" onClick="initialize('destination','destLat','destLng')">
+			    				<input type="hidden" id="destLat" name="destLat"/>
+							    <input type="hidden" id="destLng" name="destLng"/>				
+			    			</td>
+			    		</tr>
+			    	</tbody>
+			    </table>
+			   	<div style="margin-left:30%;">
+			   		<input class="gradient-button gradient-button-2" type="submit" value="Submit">
+			   	</div>
+			   	<h3 style="padding-left:10px;">Your Current Location : </h3>
+			   	<p id="coords" name="coords">
+			</div>
+	   </div>
+	   	<div id="map" style="width:100%;height:97vh;float:bottom;z-index:0;"></div>
+
+	   	{% load static %}
+	   	<script src="{% static 'js/ride.js' %}"></script>
+	</form>
+</body>
+</html>

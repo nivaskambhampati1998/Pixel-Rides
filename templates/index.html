@@ -1,0 +1,396 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Pixel Rides</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="pixel-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container-fluid">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="pixelNav">
+
+                        <!-- Nav brand -->
+                        <a href="{% url 'home' %}" class="nav-brand"><img src="{% static 'img/core-img/logoRides.png' %}" alt="" id="logo"></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a>
+                                    {% else %}
+                                    <li><a href="{% url 'userData:login' %}">Login</a></li>
+                                    <li><a href="{% url 'userData:registration' %}">SignUp</a>
+                                    {% endif %}
+                                    </li>
+                                    
+                                </ul>
+
+                                <!-- Top Social Info -->
+                                <div class="top-social-info ml-5">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    
+                                </div>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slideshow owl-carousel">
+
+            <!-- Single Slide -->
+            <div class="single-slide">
+                <!-- Background Image-->
+                <div class="slide-bg-img bg-img" style="background-image: url('../static/img/bg-img/use.jpg');"></div>
+                <!-- Welcome Text -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="welcome-text">
+                                <h2 data-animation="fadeInUp" data-delay="300ms"><span>Pixel Rides</span></h2>
+                                <h4 data-animation="fadeInUp" data-delay="500ms">Rides at your doorstep</h4>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'dashboard' %}" class="btn pixel-btn mt-50" data-animation="fadeInUp" data-delay="700ms">Ride Now</a>
+                                {% else %}
+                                <a href="{% url 'userData:login' %}" class="btn pixel-btn mt-50" data-animation="fadeInUp" data-delay="700ms">Ride Now</a>
+                                {% endif %} 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Slide -->
+            <div class="single-slide">
+                <!-- Background Image-->
+                <div class="slide-bg-img bg-img" style="background-image: url('../static/img/bg-img/taxi.jfif');"></div>
+                <!-- Welcome Text -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="welcome-text">
+                                <h2 data-animation="fadeInUp" data-delay="300ms"><span>Pixel Rides</span></h2>
+                                <h4 data-animation="fadeInUp" data-delay="500ms">Rides at your doorstep</h4>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'dashboard' %}" class="btn pixel-btn mt-50" data-animation="fadeInUp" data-delay="700ms">Ride Now</a>
+                                {% else %}
+                                <a href="{% url 'userData:login' %}" class="btn pixel-btn mt-50" data-animation="fadeInUp" data-delay="700ms">Ride Now</a>
+                                {% endif %}	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+
+<div class="vehicle-section-divider night-rider">
+        <div class="contoiner-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-divider-content">
+                        <div class="vehicle-border">
+                            <img src="{% static 'img/car.png' %}" alt="car-item" />
+                        </div><!-- /.car-border -->
+                    </div><!-- /.section-divider-content -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div><!-- /.section-divider -->
+
+
+
+
+
+    <!-- ##### Top Catagory Area Start ##### -->
+    <div class="top-catagory-area d-flex flex-wrap">
+        
+        <div class="single-catagory bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url('../static/img/bg-img/2_3.jpg');">
+            <a href="{% url 'about' %}">Who Are We?</a>
+        </div>
+        
+        <div class="single-catagory bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url('../static/img/bg-img/1_10.jpeg');">
+            <a href="{% url 'about' %}">What We Do?</a>
+        </div>
+    </div>
+    <!-- ##### Top Catagory Area End ##### -->
+
+    <!-- ##### Portfolio Area Start ###### -->
+    <div class="pixel-portfolio-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2>SERVICES</h2>
+                        <img src="{% static 'img/core-img/x.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Menu -->
+        <div class="pixel-projects-menu wow fadeInUp" data-wow-delay="200ms">
+            <div class="text-center portfolio-menu">
+                <button class="btn active" data-filter="*">All Rides</button>
+                <button class="btn" data-filter=".visual">Cars</button>
+                <button class="btn" data-filter=".add">Bikes</button>
+                <button class="btn" data-filter=".web">Autos</button>
+            </div>
+        </div>
+
+        <div class="pixel-portfolio">
+
+            <!-- Single gallery Item -->
+            <div class="single_gallery_item visual wow fadeInUp" data-wow-delay="0.2s">
+                <img src="{% static 'img/bg-img/3_4.jfif' %}" alt="" width="100">
+                <div class="hover-content text-center d-flex align-items-center justify-content-center">
+                    <div class="hover-text">
+                        <a href="{% static 'img/bg-img/3_4.jfif' %}" class="zoom-img"><i class="fa fa-car" aria-hidden="true"></i></a>
+                        <h4>Mini</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single_gallery_item visual wow fadeInUp" data-wow-delay="0.2s">
+                <img src="{% static 'img/bg-img/3_2.png' %}" alt="" width="100">
+                <div class="hover-content text-center d-flex align-items-center justify-content-center">
+                    <div class="hover-text">
+                        <a href="{% static 'img/bg-img/3_2.png' %}" class="zoom-img"><i class="fa fa-car" aria-hidden="true"></i></a>
+                        <h4>Sedan</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="single_gallery_item visual wow fadeInUp" data-wow-delay="0.2s">
+                <img src="{% static 'img/bg-img/3_3.png' %}" alt="" width="100">
+                <div class="hover-content text-center d-flex align-items-center justify-content-center">
+                    <div class="hover-text">
+                        <a href="{% static 'img/bg-img/3_3.png' %}" class="zoom-img"><i class="fa fa-car" aria-hidden="true"></i></a>
+                        <h4>Premium Sedan</h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="single_gallery_item visual wow fadeInUp" data-wow-delay="0.2s">
+                <img src="{% static 'img/bg-img/3_5.jpg' %}" alt="" width="100">
+                <div class="hover-content text-center d-flex align-items-center justify-content-center">
+                    <div class="hover-text">
+                        <a href="{% static 'img/bg-img/3_5.jpg' %}" class="zoom-img"><i class="fa fa-car" aria-hidden="true"></i></a>
+                        <h4>S.U.V.</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="single_gallery_item web wow fadeInUp" data-wow-delay="0.4s">
+                <img src="{% static 'img/bg-img/3_8.png' %}" alt="" width="100">
+                <div class="hover-content text-center d-flex align-items-center justify-content-center">
+                    <div class="hover-text">
+                        <a href="{% static 'img/bg-img/3_8.jpg' %}" class="zoom-img"><i class="fa fa-car" aria-hidden="true"></i></a>
+                        <h4>Autos</h4>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Single gallery Item -->
+            <div class="single_gallery_item add wow fadeInUp" data-wow-delay="0.4s">
+                <img src="{% static 'img/bg-img/3_7.png' %}" alt="" width="100">
+                <div class="hover-content text-center d-flex align-items-center justify-content-center">
+                    <div class="hover-text">
+                        <a href="{% static 'img/bg-img/3_7.jpg' %}" class="zoom-img"><i class="fa fa-motorcycle" aria-hidden="true"></i></a>
+                        <h4>Bikes</h4>
+                    </div>
+                </div>
+            </div>
+          
+            <!-- Single gallery Item -->
+            <div class="single_gallery_item add wow fadeInUp" data-wow-delay="0.6s">
+                <img src="{% static 'img/bg-img/2_1.png' %}" alt="" width="100">
+                <div class="hover-content text-center d-flex align-items-center justify-content-center">
+                    <div class="hover-text">
+                        <a href="{% static 'img/bg-img/2_1.png' %}" class="zoom-img"><i class="fa fa-motorcycle" aria-hidden="true"></i></a>
+                        <h4>Premium Bikes</h4>
+                    </div>
+                </div>
+            </div>
+
+        
+
+        </div>
+    </div>
+    <!-- ##### Portfolio Area End ###### -->
+
+    <!-- ##### Contact Area Start #####-->
+    <section class="contact-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h2>Get In Touch</h2>
+                        <img src="{% static 'img/core-img/x.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Contact Form -->
+                    <div class="contact-form-area text-center">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="text" name="name" class="form-control wow fadeInUp" data-wow-delay="100ms" placeholder="Name">
+                            <input type="email" name="email" class="form-control wow fadeInUp" data-wow-delay="300ms" placeholder="E-mail">
+                            <input type="text" name="subject" class="form-control wow fadeInUp" data-wow-delay="500ms" placeholder="Subject">
+                            <textarea name="message" class="form-control wow fadeInUp" data-wow-delay="700ms" placeholder="Message"></textarea>
+                            <button type="submit" class="btn pixel-btn wow fadeInUp" data-wow-delay="900ms">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ##### Contact Area End #####-->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-footer-widget mb-100">
+                        <!-- Footer Logo -->
+                        <a href="{% url 'home' %}" class="footer-logo"><img src="{% static 'img/core-img/logoRides.png' %}" alt=""></a>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-md-9 col-lg-8 col-xl-7">
+                    <div class="row">
+                        <!-- Single Footer Widget -->
+                        <div class="col-sm-4">
+                            <div class="single-footer-widget mb-100">
+                                <h5 class="widget-title">Address</h5>
+                                <p>Business Center<br> Sri City, 517646</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Footer Widget -->
+                        <div class="col-sm-4">
+                            <div class="single-footer-widget mb-100">
+                                <h5 class="widget-title">Support</h5>
+                                <p><i class="fa fa-phone"></i> +91 987654321</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Footer Widget -->
+                        <div class="col-sm-4">
+                            <div class="single-footer-widget mb-100">
+                                <h5 class="widget-title">Social</h5>
+                                <div class="footer-social-info">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Area -->
+        <div class="copywrite-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                        <div class="copywrite-content">
+                            <!-- Copywrite Text -->
+                            <p class="copywrite-text">Template provided by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        </div>
+                    </div>           
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

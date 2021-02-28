@@ -1,0 +1,320 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Pixel Rides</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Stylesheet -->
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="pixel-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container-fluid">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="pixelNav">
+
+                        <!-- Nav brand -->
+                        <a href="{% url 'home' %}" class="nav-brand"><img src="{% static 'img/core-img/logoRides.png' %}" alt="" id="logo"></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>                                    
+                                    {% if user.is_authenticated %}
+                                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a>
+                                    {% else %}
+                                    <li><a href="{% url 'userData:login' %}">Login</a></li>
+                                    <li><a href="{% url 'userData:registration' %}">SignUp</a>
+                                    {% endif %}
+                                    </li>
+                                </ul>
+
+                                <!-- Top Social Info -->
+                                <div class="top-social-info ml-5">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <section class="breadcrumb-area bg-img bg-overlay jarallax">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>About Us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Feature Area Start ##### -->
+    <section class="pixel-feature-area d-flex flex-wrap">
+        <!-- Feature Thumbnail -->
+        <div class="feature-thumbnail bg-img jarallax" style="background-image: url('../static/img/bg-img/3_16.jfif');"></div>
+
+        <!-- Feature Content -->
+        <div class="feature-content">
+            <h1>Pixel Rides</h1>
+            <p>A one of a kind ride booking service made with love by people who understand you travel needs. We are a fast developing service having over 2000 cars and bikes under our brand with many more to come soon. We make you rides easier and hassle-free with our wonderful drivers and a 24/7 customer care service.</p>
+        </div>
+    </section>
+    <!-- ##### Feature Area End ##### -->
+
+    <!-- ##### Feature Area Start ##### -->
+    <section class="pixel-feature-area d-flex flex-wrap">
+        <!-- Feature Thumbnail -->
+
+        <!-- Feature Content -->
+        <div class="feature-content">
+            <h1>Our Specialities</h1>
+            <p>What separates us from the many ride booking services available are features like online bargaining, which is really beneficial to both the drivers and customers. Another feature is GPS based tracking for security purposes. We also have a home developed Wallet system, making you payments easier.</p>
+            <p>We hope you choose to ride with us</p>
+            <a href="{% url 'userData:login' %}" class="btn pixel-btn mt-15">Ride With Us</a>
+        </div>
+
+        <!-- Feature Thumbnail -->
+        <div class="feature-thumbnail bg-img jarallax" style="background-image: url('../static/img/bg-img/3_19.jpg');"></div>
+    </section>
+    <!-- ##### Feature Area End ##### -->
+
+    <!-- ##### Cool Facts Area Start ##### -->
+    <section class="pixel-cool-facts-area bg-gray section-padding-100-0">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- Single Cool Facts -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact mb-100">
+                        <div class="scf-icon">
+                            <img src="{% static 'img/bg-img/4_3.png' %}" alt="">
+                        </div>
+                        <div class="scf-text">
+                            <h2><span class="counter">2,251</span></h2>
+                            <h6>Vehicles Acquired</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact mb-100">
+                        <div class="scf-icon">
+                            <img src="{% static 'img/bg-img/4_1.png' %}" alt="">
+                        </div>
+                        <div class="scf-text">
+                            <h2><span class="counter">3,325</span></h2>
+                            <h6>Jobs Created</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact mb-100">
+                        <div class="scf-icon">
+                            <img src="{% static 'img/bg-img/4_4.png' %}" alt="">
+                        </div>
+                        <div class="scf-text">
+                            <h2><span class="counter">40,021</span></h2>
+                            <h6>Rides Undertook</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-fact mb-100">
+                        <div class="scf-icon">
+                            <img src="{% static 'img/bg-img/4_5.png' %}" alt="">
+                        </div>
+                        <div class="scf-text">
+                            <h2><span class="counter">11,236</span></h2>
+                            <h6>Happy Customers</h6>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ##### Cool Facts Area End ##### -->
+
+    <!-- ##### Testimonial Area Start ##### -->
+    <!-- <h4 text-align= center>=============================( Comments/Reviews from our users )===========================</h4>  -->
+    <br><br>
+    
+    <section class="testimonial-area mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Testimonial Slides -->
+                    <div class="testimonial-slides owl-carousel">
+
+                        <!-- Single Slide -->
+                        <div class="single-testimonial-slide">
+                            <h4>Charan</h4>
+                            <span>Customer</span>
+                            <h5>Very user-friendly service and rides are always on time.</h5>
+                        </div>
+
+                        <!-- Single Slide -->
+                        <div class="single-testimonial-slide">
+                          
+                            <h4>Arjun</h4>
+                            <span>Driver</span>
+                            <h5>Developers care for the drivers too and the pay is good.</h5>
+                        </div>
+
+                        <!-- Single Slide -->
+                        <div class="single-testimonial-slide">       
+                            <h4>Sam</h4>
+                            <span>Customer</span>
+                            <h5>Always feel secure while riding with PixelRides. Definitely would recommend.</h5>
+                        </div>
+
+                        <!-- Single Slide -->
+                        <div class="single-testimonial-slide">
+                            <h4>Ravi</h4>
+                            <span>Driver</span>
+                            <h5>Able to support family thanks to PixelRides and the customers are friendly too.</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Testimonial Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area section-padding-100-0">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="single-footer-widget mb-100">
+                        <!-- Footer Logo -->
+                        <a href="{% url 'home' %}" class="footer-logo"><img src="{% static 'img/core-img/logoRides.png' %}" alt=""></a>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-md-9 col-lg-8 col-xl-7">
+                    <div class="row">
+                        <!-- Single Footer Widget -->
+                        <div class="col-sm-4">
+                            <div class="single-footer-widget mb-100">
+                                <h5 class="widget-title">Address</h5>
+                                <p>Business Center<br> Sri City, 517646</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Footer Widget -->
+                        <div class="col-sm-4">
+                            <div class="single-footer-widget mb-100">
+                                <h5 class="widget-title">Support</h5>
+                                <p><i class="fa fa-phone"></i> +91 987654321</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Footer Widget -->
+                        <div class="col-sm-4">
+                            <div class="single-footer-widget mb-100">
+                                <h5 class="widget-title">Social</h5>
+                                <div class="footer-social-info">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Area -->
+        <div class="copywrite-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                        <div class="copywrite-content">
+                            <!-- Copywrite Text -->
+                            <p class="copywrite-text">Template provided by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        </div>
+                    </div>           
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>
